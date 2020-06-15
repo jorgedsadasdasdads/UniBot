@@ -13,7 +13,7 @@
   ],
   "license": "Unlicense",
   "dependencies": {
-    "discord.js": "^11.5.1",
+    "discord.js": "^11.6.4",
     "dotenv": "^8.2.0",
     "duck-duck-scrape": "^1.0.3",
     "enmap": "^5.2.4",
