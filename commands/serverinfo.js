@@ -1,6 +1,3 @@
-/**
- * O Comando "serverinfo" mostrará informações do servidor
- */
 
 const Discord = require('discord.js')
 
@@ -18,7 +15,7 @@ module.exports = {
     }
 
     const embed = new Discord.RichEmbed()
-      .setColor(client.displayHexColor === '#000000' ? '#ffffff' : client.displayHexColor)
+      .setColor("#8b00fa")
       // .setThumbnail(message.guild.iconURL)
       .setAuthor('🔍 Informações do servidor')
       .addField('**Nome**', message.guild.name, true)

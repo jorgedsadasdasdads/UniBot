@@ -20,7 +20,7 @@ module.exports = {
 
     const embed = new Discord.RichEmbed()
       .setThumbnail((target.displayAvatarURL))
-      .setColor('RANDOM')
+      .setColor('#8b00fa')
       .setAuthor('🔍 Informações do usuário')
       .addField('**Tag**', `${member.user.tag}`, inline)
       .addField('**ID**', member.user.id, inline)
@@ -31,7 +31,7 @@ module.exports = {
       .addField('**Cargos**', `${member.roles.filter(r => r.id !== message.guild.id).map(roles => `\`${roles.name}\``).join(' **|** ') || 'Nenhum cargo'}`, true)
       .addField('**Entrou no Discord em**', formatDate('DD/MM/YYYY, às HH:mm:ss', member.user.createdAt))
       .addField('**Entrou no servidor em**', formatDate('DD/MM/YYYY, às HH:mm:ss', member.joinedAt))
-      .setFooter('2020 © Liga dos Programadores.')
+      .setFooter('2020 © Sandy')
       .setTimestamp()
     message.channel.send(embed)
   },
