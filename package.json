@@ -13,11 +13,17 @@
   ],
   "license": "Unlicense",
   "dependencies": {
-    "discord.js": "^11.6.4",
+    "discord.js": "^11.5.1",
     "dotenv": "^8.2.0",
     "duck-duck-scrape": "^1.0.3",
     "enmap": "^5.2.4",
-    "moment": "^2.24.0"
+    "moment": "^2.24.0",
+    "express": "^4.17.1",
+    "express-glitch-keepalive": "^0.2.0",
+    "node-fetch": "^2.6.0",
+    "superagent": "^5.2.2",
+    "jimp": "^0.13.0",
+    "quick.db": "^7.1.1"
   },
   "devDependencies": {}
 }

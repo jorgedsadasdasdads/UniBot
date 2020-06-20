@@ -4,8 +4,9 @@ module.exports = {
 
   run: async (client, message, args) => {
     const embed = new Discord.RichEmbed()
-      .setAuthor(`🏓 ${Math.round(client.ping)}ms`)
-      .setColor(message.member ? message.member.displayColor : global.CLIENT_DEFAULT_COLOR)
+      .setAuthor(`Ping: ${Math.round(client.ping)}ms`)
+    
+      .setColor("#8b00fa")
 
     message.channel.send(embed)
   },

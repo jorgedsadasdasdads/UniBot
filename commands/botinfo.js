@@ -17,17 +17,17 @@ module.exports = {
     const servsize = client.guilds.size
     const usersize = client.users.size
     const status = {
-      online: '`🟢` Online',
+      online: '<a:taokTPU:719256514769977425> Online',
       offline: '`⚫` Offline'
     }
 
     const embed = new Discord.RichEmbed()
-      .setColor(client.displayHexColor === '#000000' ? '#ffffff' : client.displayHexColor)
+      .setColor("#8b00fa")
       .setThumbnail(botAvatar)
-      .setAuthor('🤖 Minhas informações')
+      .setAuthor('❤ Minhas informações')
       .addField('**Meu nick**', userName)
       .addField('**Meu ID**', client.user.id)
-      .addField('**Servidores**', `🛡 ${servsize}`, true)
+      .addField('**Servidores**', `<a:CoroaPSY:717069788651716630> ${servsize}`, true)
       .addField('**Usuários**', `${usersize}`, inline)
       .addField('**Estou online a**', moment().to(client.startTime, true))
       .addField('**Criado em**', formatDate('DD/MM/YYYY, às HH:mm:ss', date))
@@ -44,17 +44,16 @@ module.exports = {
     }
 
     message.channel.send(embed)
-  },
+  
+},
 
   conf: {},
 
-  get help () {
-    return {
-      name: 'botinfo',
-      category: 'Info',
-      description: 'Mostra informações do bot.',
-      usage: 'botinfo'
-    }
+  help: {
+    name: 'botinfo',
+    category: 'Utilitários',
+    description: 'Mostra as informações do bot',
+    usage: 'botinfo'
   }
 }
 /**
