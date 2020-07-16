@@ -1,3 +1,5 @@
-node_modules/
-npm-debug.log/
-package-lock.json/
+# Node build artifacts
+node_modules
+npm-debug.log
+# DotEnv
+.env

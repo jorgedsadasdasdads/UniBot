@@ -3,25 +3,13 @@ if (process.version.slice(1).split('.')[0] < 8) throw new Error('Node 8.0.0 or h
 require('dotenv').config()
 
 const Discord = require('discord.js')
-const db = require("quick.db")
 const { readdirSync } = require('fs')
 const Enmap = require('enmap')
 const { Client, RichEmbed } = require('discord.js');
 const client = new Discord.Client()
-const express = require('express');
-const keepalive = require('express-glitch-keepalive');
-const app = express();
-app.use(keepalive);
-app.get('/', (req, res) => {
-res.json('This bot should be online! Uptimerobot will keep it alive');
-});
-app.get("/", (request, response) => {
-response.sendStatus(200);
-});
-app.listen(process.env.PORT);
 
 client.commands = new Enmap()
-client.startTime = Date.now() 
+client.startTime = Date.now()
 
 const cmdFiles = readdirSync('./commands/')
 console.log('log', `Carregando o total de ${cmdFiles.length} comandos.`)
@@ -32,7 +20,7 @@ cmdFiles.forEach(f => {
     if (f.split('.').slice(-1)[0] !== 'js') return
 
     console.log('log', `Carregando comando: ${props.help.name}`)
-    
+
     if (props.init) props.init(client)
 
     client.commands.set(props.help.name, props)
@@ -54,33 +42,27 @@ evtFiles.forEach(f => {
   client.on(eventName, event.bind(null, client))
 })
 
-
-
-
-client.on('message', message => {
-  // If the message is "p"
-  if (message.content === 's.suporte') {
-    // Send "pong" to the same channel
-    message.channel.send('<a:NixingSeta1:704106890589634560> **Entre no meu servidor de suporte e fique por dentro de todas as atualizações que rolam na Sandy <a:NixingFixo:704106690877849621> ** https://discord.gg/u6vrdtw');
-  }
-});
-
 client.on('message', message => {
   // If the message is "how to embed"
-  if (message.content === 's.convite') {
+  if (message.content === 'l!ajuda') {
+    // We can create embeds using the MessageEmbed constructor
+    // Read more about all that you can do with the constructor
+    // over at https://discord.js.org/#/docs/main/stable/class/RichEmbed
     const embed = new RichEmbed()
       // Set the title of the field
-      .setTitle('<a:YellowCoroa4:715949264370532442> Me convide para seu servidor!')
-      // Set the color of the embed
-      .setColor('#8b00fa')
-      // Set the main content of the embed
-      .setDescription(`<a:Pinkseta:717464651109105675> **Olá, gostou de minhas funções? <a:NixingFixo:722114161768661133> 
-Me adicione em seu servidor clicando** [AQUI](https://discord.com/oauth2/authorize?client_id=721879918664876132&scope=bot&permissions=268443710)`);
+      .setTitle('Ajuda - Larinha v$')
+      .setDescription(`**<a:coroinhasandy:727001027622207568> | Comandos da Larinha v$** \n
+<:seta:726196684211617943> l!aviso 
+<:seta:726196684211617943> l!divembed
+<:seta:726196684211617943> l!invite
+<:seta:726196684211617943> l!ajuda
+<:seta:726196684211617943> l!avatar
+<:seta:726196684211617943> l!botinfo
+`);
     // Send the embed to the same channel as the message
     message.channel.send(embed);
   }
 });
-
 
 client.on("guildCreate", guild => {
 
@@ -92,37 +74,12 @@ client.on("guildDelete", guild => {
   console.log(`O bot foi removido do servidor: ${guild.name} (id: {guild.id})`);
 });
 
-
-
 client.on('message', message => {
   
 if(message.content.startsWith(`<@${client.user.id}>`) || message.content.startsWith(`<@!${client.user.id}>`)){
-    return message.channel.send(' :tropical_drink: | Olá, está precisando de ajuda? utilize `s.ajuda` e veja meus comandos!') 
+    return message.channel.send(' <a:CoroaTKF:726199479635673179> | Oih, tudo bem? está precisando de ajuda? digite l!ajuda e veja meus comandos, você não vai se arrepender!') 
 }
 });
 
-client.on("message", async message => {
-  
-  let antiinvite = db.get(`${message.guild.id}_antiinvite`)
 
-  if(antiinvite === true) {
-     
-  let blacklisted = ['discord.gg'];
-  
-  let FoundinText = false;
-  for (var i in blacklisted){
-    if (message.content.toLowerCase().includes(blacklisted[i].toLowerCase())) FoundinText = true;
-    
-    if (FoundinText){
-      message.delete()
-      message.reply('Você não pode divulgar link de outros servidores aqui!')
-      
-    
-    }
-  }
-  }
-})
-
-
-
-client.login(process.env.AUTH_TOKEN) /* Inicia o Bot. */
+client.login(process.env.AUTH_TOKEN)      

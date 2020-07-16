@@ -4,20 +4,19 @@ module.exports = {
 
   run: async (client, message, args) => {
     const embed = new Discord.RichEmbed()
-      .setAuthor(`Ping: ${Math.round(client.ping)}ms`)
-    
-      .setColor("#8b00fa")
-
+      .setAuthor(`Me adicione em seu servidor`)
+      .setDescription(`**Clique** [**AQUI**](https://discord.com/oauth2/authorize?client_id=692465131849777316&permissions=0&scope=bot)`)
     message.channel.send(embed)
   },
+
 
   conf: {},
 
   get help () {
     return {
-      name: 'ping',
-      description: 'Mostra a latência do bot.',
-      usage: 'ping',
+      name: 'invite',
+      description: 'Mostra o convite da victória.',
+      usage: 'invite',
       category: 'Info'
     }
   }
