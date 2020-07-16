@@ -4,7 +4,7 @@
   "description": "Um bot para o discord.",
   "main": "index.js",
   "scripts": {
-    "start": "node ."
+    "start": "node index.js"
   },
   "author": "Liga dos Programadores",
   "contributors": [
@@ -18,12 +18,9 @@
     "duck-duck-scrape": "^1.0.3",
     "enmap": "^5.2.4",
     "moment": "^2.24.0",
-    "express": "^4.17.1",
-    "express-glitch-keepalive": "^0.2.0",
-    "node-fetch": "^2.6.0",
-    "superagent": "^5.2.2",
-    "jimp": "^0.13.0",
-    "quick.db": "^7.1.1"
+    "dotenv-webpack": "^1.8.0",
+    "dotenv-safe": "^8.1.0",
+    "dotenv-extended": "^2.8.0"
   },
   "devDependencies": {}
 }
