@@ -19,7 +19,7 @@
     "jimp": "^0.12.0",
     "lowdb": "^1.0.0",
     "mathjs": "^6.6.5",
-    "moment": "^2.26.0",
+    "moment": "^2.29.2",
     "moment-duration-format": "^2.2.2",
     "mongoose": "^5.9.15",
     "node-superfetch": "^0.1.10",
